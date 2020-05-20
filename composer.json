@@ -1,15 +1,15 @@
 {
-    "name": "hcodebr/ecommerce",
+    "name": "45lailson/ecommerce",
     "authors": [
         {
-            "name": "Hcode Treinamentos",
-            "email": "suporte@hcode.com.br"
+            "name": "lailson",
+            "email": "lailson4445@hotmail.com"
         }
     ],
     "require": {
     	"phpmailer/phpmailer":"5.2.22",
     	"slim/slim":"2.0",
-    	"rain/raintpl":"3.0.0",
+        "rain/raintpl":"3.0.0",
         "guzzlehttp/guzzle":"*"
     },
     "autoload": {

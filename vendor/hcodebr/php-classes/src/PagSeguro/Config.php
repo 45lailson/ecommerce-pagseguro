@@ -10,7 +10,8 @@ class Config {
 	const PRODUCTION_EMAIL = "lailson4545@hotmail.com";
 
 	const SANDBOX_TOKEN = "7015065D769A4468B8A8F2E3590253BA";
-	const PRODUCTION_TOKEN = "";
+	const PRODUCTION_TOKEN = "6299546a-de86-4a71-ac65-28cb257bba59ef4d7e38488597f03d1ae32fca973f1ecbe7-9db3-44d0-a6af-78e9b40cfbe1";
+
 
 	const SANDBOX_SESSIONS = "https://ws.sandbox.pagseguro.uol.com.br/v2/sessions";
 	const PRODUCTION_SESSIONS = "https://ws.pagseguro.uol.com.br/v2/sessions";
@@ -45,7 +46,7 @@ class Config {
 
 	public static function getUrlJS()
 	{
-
+		return (Config::SANDBOX === true) ? Config::SANDBOX_URL_JS : Config::PRODUCTION_URL_JS;
 	}
 
 }
