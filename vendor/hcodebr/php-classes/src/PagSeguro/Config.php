@@ -10,8 +10,7 @@ class Config {
 	const PRODUCTION_EMAIL = "lailson4545@hotmail.com";
 
 	const SANDBOX_TOKEN = "7015065D769A4468B8A8F2E3590253BA";
-	const PRODUCTION_TOKEN = "6299546a-de86-4a71-ac65-28cb257bba59ef4d7e38488597f03d1ae32fca973f1ecbe7-9db3-44d0-a6af-78e9b40cfbe1";
-
+	const PRODUCTION_TOKEN = "
 
 	const SANDBOX_SESSIONS = "https://ws.sandbox.pagseguro.uol.com.br/v2/sessions";
 	const PRODUCTION_SESSIONS = "https://ws.pagseguro.uol.com.br/v2/sessions";
@@ -25,31 +24,36 @@ class Config {
 		if (Config::SANDBOX === true)
 		{
 
-			return [
+			return array(
 				"email"=>Config::SANDBOX_EMAIL,
 				"token"=>Config::SANDBOX_TOKEN
-			];
+			);
 
 		} else {
 
-			return [
+			return array(
 				"email"=>Config::PRODUCTION_EMAIL,
 				"token"=>Config::PRODUCTION_TOKEN
-			];
+			);
+
 		}
+
 	}
 
 	public static function getUrlSessions():string
 	{
+
 		return (Config::SANDBOX === true) ? Config::SANDBOX_SESSIONS : Config::PRODUCTION_SESSIONS;
+
 	}
 
-	public static function getUrlJS()
+	public function getUrlJS()
 	{
+
 		return (Config::SANDBOX === true) ? Config::SANDBOX_URL_JS : Config::PRODUCTION_URL_JS;
+
 	}
 
 }
-
 
  ?>
