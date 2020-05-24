@@ -10,7 +10,8 @@ class Config {
 	const PRODUCTION_EMAIL = "lailson4545@hotmail.com";
 
 	const SANDBOX_TOKEN = "7015065D769A4468B8A8F2E3590253BA";
-	const PRODUCTION_TOKEN = "
+	const PRODUCTION_TOKEN = "";
+
 
 	const SANDBOX_SESSIONS = "https://ws.sandbox.pagseguro.uol.com.br/v2/sessions";
 	const PRODUCTION_SESSIONS = "https://ws.pagseguro.uol.com.br/v2/sessions";

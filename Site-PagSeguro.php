@@ -22,9 +22,7 @@ $app->get('/payment', function() {
 		array_push($years, $y); //Adiciona mais um na variavel $years
 	}
 
-	$page = new Page([
-		"footer"=>false
-	]);
+	$page = new Page();
 
 	$page->setTpl("payment",[
 		"order"=>$order->getValues(),
