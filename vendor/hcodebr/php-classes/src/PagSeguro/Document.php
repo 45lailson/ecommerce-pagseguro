@@ -1,6 +1,6 @@
 <?php 
 
-namespace \Hcode\PagSeguro;
+namespace Hcode\PagSeguro;
 
 class Phone {
 
@@ -69,10 +69,10 @@ class Phone {
 		$document = $dom->createElement("document");
 		$document = $dom->appendChild($document);
 
-		$type = $dow->createElement("type", $this->type);
+		$type = $dom->createElement("type", $this->type);
 		$type = $document->appendChild($type);
 
-		$value = $dow->createElement("value" , $this->type);
+		$value = $dom->createElement("value" , $this->type);
 		$value = $document->appendChild($value);
 
 		return $document;
