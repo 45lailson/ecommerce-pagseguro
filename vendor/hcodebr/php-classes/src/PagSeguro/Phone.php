@@ -2,6 +2,10 @@
 
 namespace Hcode\PagSeguro;
 
+use Exception;
+use DOMDocument;
+use DOMElement;
+
 class Phone {
 
 	private $areaCode;
@@ -39,7 +43,7 @@ class Phone {
 		$areaCode = $dom->createElement("areaCode", $this->areaCode);
 		$areaCode = $phone->appendChild($areaCode);
 
-		$number = $dom->createElement("number" , $this->areaCode);
+		$number = $dom->createElement("number" , $this->number);
 		$number = $phone->appendChild($number);
 
 		return $phone;

@@ -2,7 +2,11 @@
 
 namespace Hcode\PagSeguro;
 
-class Phone {
+use Exception;
+use DOMDocument;
+use DOMElement;
+
+class Document {
 
 	private $type;
 	private $value;
@@ -38,7 +42,7 @@ class Phone {
 	}
 
 
-	public static function isValidCPF($number):boolean
+	public static function isValidCPF($number):bool
 	{
 
 	    $number = preg_replace('/[^0-9]/', '', (string) $number);
@@ -72,7 +76,7 @@ class Phone {
 		$type = $dom->createElement("type", $this->type);
 		$type = $document->appendChild($type);
 
-		$value = $dom->createElement("value" , $this->type);
+		$value = $dom->createElement("value" , $this->value);
 		$value = $document->appendChild($value);
 
 		return $document;
