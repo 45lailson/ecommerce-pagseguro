@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Hcode\PagSeguro;
 
@@ -18,33 +18,27 @@ class Item {
 		string $description,
 		float $amount,
 		int $quantity
-
 	)
-
 	{
 
 		if (!$id || !$id > 0)
 		{
-			throw new Exception("Informe o ID do item");
-			
+			throw new Exception("Informe o ID do item.");
 		}
 
 		if (!$description)
 		{
-			throw new Exception("Informe a descrição do item");
-			
+			throw new Exception("Informe a descrição do item.");
 		}
 
 		if (!$amount || !$amount > 0)
 		{
-			throw new Exception("Informe o valor total do item");
-			
+			throw new Exception("Informe o valor total do item.");
 		}
 
 		if (!$quantity || !$quantity > 0)
 		{
-			throw new Exception("Informe a Quantidade do item");
-			
+			throw new Exception("Informe a quantidade do item.");
 		}
 
 		$this->id = $id;
@@ -54,16 +48,14 @@ class Item {
 
 	}
 
-	 public function getDOMElement():DOMElement
-
+	public function getDOMElement():DOMElement
 	{
-
+	
 		$dom = new DOMDocument();
 
 		$item = $dom->createElement("item");
 		$item = $dom->appendChild($item);
 
-		
 		$amount = $dom->createElement("amount", number_format($this->amount, 2, ".", ""));
 		$amount = $item->appendChild($amount);
 
@@ -79,9 +71,5 @@ class Item {
 		return $item;
 
 	}
-
-
+	
 }
-
-
- ?>

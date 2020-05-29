@@ -4,6 +4,7 @@ namespace Hcode\Model;
 
 use \Hcode\DB\Sql;
 use \Hcode\Model;
+use \Hcode\Model\Order;
 use \Hcode\Model\Cart;
 use \Hcode\Model\Address;
 
@@ -231,6 +232,31 @@ class Order extends Model {
 		return $address;
 	}
 
+	public function setPagSeguroTransactionRespose(
+		string $descode, 
+		float $vlgrossamount,
+		float $vldisccountamount,
+		float $vlfeeamont,
+		float $vlnetamount,
+		float $extraamount,
+		string $despaymentlink = ""	
+	)
+	{
+
+		$sql = new Sql();
+
+		$sql->query("CALL sp_orderspagseguro_save(:idorder, :descode, :vlgrossamount, :vldisccountamount, :vlfeeamont, :vlnetamount, :extraamount, :despaymentlink)", [
+			':idorder'=>$this->getidorder(),
+			':descode'=>$descode,
+			':vlgrossamount'=>$vlgrossamount,
+			':vldisccountamount'=>$vldisccountamount,
+			':vlfeeamont'=>$vlfeeamont,
+			':vlnetamount'=>$vlnetamount,
+			':extraamount'=>$extraamount,
+			':despaymentlink'=>$despaymentlink
+		]);
+
+	}
 }
 
 ?>

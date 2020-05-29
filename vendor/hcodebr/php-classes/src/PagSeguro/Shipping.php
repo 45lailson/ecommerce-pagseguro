@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 
 namespace Hcode\PagSeguro;
 
@@ -14,14 +13,14 @@ class Shipping {
 	const OTHER = 3;
 
 	private $address;
-	private $cost;
 	private $type;
+	private $cost;
 	private $addressRequired;
 
 	public function __construct(
 		Address $address,
 		float $cost,
-		int $type,	
+		int $type,		
 		bool $addressRequired = true
 	)
 	{
@@ -65,9 +64,4 @@ class Shipping {
 
 	}
 	
-
-
 }
-
-
- ?>
