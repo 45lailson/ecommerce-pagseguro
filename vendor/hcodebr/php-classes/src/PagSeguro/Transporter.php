@@ -53,7 +53,9 @@ class Transporter {
 			(string)$xml->paymentLink
 		);
 
-		var_dump("ok");
+		return $xml;
+
+	
 
 	}
 	

@@ -235,7 +235,7 @@ class Order extends Model {
 	public function setPagSeguroTransactionRespose(
 		string $descode, 
 		float $vlgrossamount,
-		float $vldisccountamount,
+		float $vldiscountamount,
 		float $vlfeeamont,
 		float $vlnetamount,
 		float $extraamount,
@@ -245,16 +245,17 @@ class Order extends Model {
 
 		$sql = new Sql();
 
-		$sql->query("CALL sp_orderspagseguro_save(:idorder, :descode, :vlgrossamount, :vldisccountamount, :vlfeeamont, :vlnetamount, :extraamount, :despaymentlink)", [
+		$sql->query("CALL sp_orderspagseguro_save(:idorder, :descode, :vlgrossamount, :vldiscountamount, :vlfeeamont, :vlnetamount, :vlextraamount, :despaymentlink)", [
 			':idorder'=>$this->getidorder(),
 			':descode'=>$descode,
 			':vlgrossamount'=>$vlgrossamount,
-			':vldisccountamount'=>$vldisccountamount,
+			':vldiscountamount'=>$vldiscountamount,
 			':vlfeeamont'=>$vlfeeamont,
 			':vlnetamount'=>$vlnetamount,
-			':extraamount'=>$extraamount,
+			':vlextraamount'=>$vlextraamount,
 			':despaymentlink'=>$despaymentlink
 		]);
+
 
 	}
 }

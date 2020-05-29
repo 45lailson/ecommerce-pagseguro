@@ -16,6 +16,24 @@ use  \Hcode\PagSeguro\CreditCard\Installment;
 use  \Hcode\PagSeguro\CreditCard\Holder;
 use  \Hcode\Model\Order;
 
+$app->get('/payment/success', function(){
+
+	User::verifyLogin(false);
+
+	$order = new Order();
+
+	$order->getFromSession();
+
+	$page = new Page();
+
+	$page->setTpl('payment-success',[
+		'order'=>$order->getValues()
+
+	]);
+
+
+});
+
 $app->post('/payment/credit', function(){
 
     User::verifyLogin(false);
@@ -88,7 +106,9 @@ $app->post('/payment/credit', function(){
 
     Transporter::sendTransaction($payment);
     
-   
+    echo json_encode([
+        'success'=>true
+    ]);
 
 });
 
