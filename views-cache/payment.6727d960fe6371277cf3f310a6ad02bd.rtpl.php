@@ -484,6 +484,108 @@ scripts.push(function(){
     return true;
 }
 
+
+    
+
+  $("#form-boleto").on("submit", function(){
+
+    e.preventDefault();
+
+    if (!isValidCPF($("#form-boleto [name=cpf]").val())) {
+        showError("Este número de CPF não é valido.");
+        return false;
+
+     }
+
+        var formData = $(this).serializeArray();
+
+        var params = {};
+
+         $.each(formData, function(index, field){
+
+        params[field.name] = field.value
+
+
+     });
+
+         params.hash = PagSeguroDirectPayment.getSenderHash();
+
+           $.post(
+                "/payment/boleto",
+                $.param(params),
+                function(r){
+
+                    var response = JSON.parse(r);
+
+                    if (response.success) {
+
+                        window.location.href = "/payment/success/boleto";
+
+                    } else {
+
+                        showError("Não foi possivel efetuar o pagamento");
+
+                    }
+
+                   
+                }
+            );
+  
+
+  });  
+
+
+
+  $("#form-debit").on("submit", function(){
+
+    e.preventDefault();
+
+    if (!isValidCPF($("#form-debit [name=cpf]").val())) {
+        showError("Este número de CPF não é valido.");
+        return false;
+
+     }
+
+        var formData = $(this).serializeArray();
+
+        var params = {};
+
+         $.each(formData, function(index, field){
+
+        params[field.name] = field.value
+
+
+     });
+
+         params.hash = PagSeguroDirectPayment.getSenderHash();
+
+           $.post(
+                "/payment/debit",
+                $.param(params),
+                function(r){
+
+                    var response = JSON.parse(r);
+
+                    if (response.success) {
+
+                        window.location.href = "/payment/success/debit";
+
+                    } else {
+
+                        showError("Não foi possivel efetuar o pagamento");
+
+                    }
+
+                   
+                }
+            );
+  
+
+  });  
+
+
+
+
   $("#form-credit").on("submit", function(e){
 
      e.preventDefault();

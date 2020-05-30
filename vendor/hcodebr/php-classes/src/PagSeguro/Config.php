@@ -6,8 +6,8 @@ class Config {
 
 	const SANDBOX = true;
 
-	const SANDBOX_EMAIL = "lailson4545@hotmail.com";
-	const PRODUCTION_EMAIL = "lailson4545@hotmail.com";
+	const SANDBOX_EMAIL = "lailsonsousa@hotmail.com";
+	const PRODUCTION_EMAIL = "lailsonsousa@hotmail.com";
 
 	const SANDBOX_TOKEN = "7015065D769A4468B8A8F2E3590253BA";
 	const PRODUCTION_TOKEN = "";
@@ -25,6 +25,10 @@ class Config {
     const PRODUCTION_URL_TRANSACTION = "https://ws.pagseguro.uol.com.br/v2/transactions";
 
 	//--------------------------------------------------------------------------------------------------------------
+
+
+	const SANDBOX_URL_NOTIFICATION = "https://ws.sandbox.pagseguro.uol.com.br/v2/transactions/notifications/";
+    const PRODUCTION_URL_NOTIFICATION = "https://ws.pagseguro.uol.com.br/v2/transactions/notifications/";
 
 	const MAX_INSTALLMENT_NO_INTEREST = 10;
 	const MAX_INSTALLMENT = 10;
@@ -75,14 +79,14 @@ class Config {
 
 	}
 
-	/*public static function getNotificationTransactionURL()
+	 public static function getNotificationTransactionURL()
 	{
 
 		return (Config::SANDBOX === true) ? Config::SANDBOX_URL_NOTIFICATION :
 		Config::PRODUCTION_URL_NOTIFICATION;
 
 	}
-*/
+
 
 }
 
